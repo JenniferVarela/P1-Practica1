@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">P1-Practica1</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_pasar">Segunda Actividad</string>
+</resources>
