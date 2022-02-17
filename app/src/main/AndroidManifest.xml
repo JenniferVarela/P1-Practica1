@@ -2,7 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.p1_practica1">
 
-    <application
+    /*Los permisos se usan fuera de la aplicacion*/
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera2"
+        android:required="true" />
+
+<application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,8 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.P1Practica1">
         <activity
-            android:name=".Activity_Combo"
-            android:exported="true">
+            android:name=".Activity_Foto"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,12 +28,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".Activity_Combo"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".Activiry_Edit"
             android:exported="false" />
         <activity
             android:name=".ActivityListView"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ActivityConsulta"
             android:exported="true" />
@@ -38,5 +51,24 @@
             android:name=".MainActivity"
             android:exported="true" />
     </application>
+
+    /*Queries nos permite el acceso a acciones o contenidos propios del sistema*/
+    <queries>
+        <!-- Browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="http" />
+        </intent>
+
+        <!-- Camera -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+
+        <!-- Gallery -->
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT" />
+        </intent>
+    </queries>
 
 </manifest>
